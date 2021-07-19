@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br/>
+
+<h1>All Transactions Data</h1>
+<br>
+<!-- table  -->
+{% if transactions %}
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr class="table-danger">
+            <th scope="col">Sl. No.</th>
+            <th scope="col">Sender's Name</th>
+            <th scope="col">Sender's E-mail</th>
+            <th scope="col">Receiver's Name</th>
+            <th scope="col">Receiver's E-mail</th>
+            <th scope="col">Amount Transferred(in ₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for transaction in transactions %}
+            <tr class="table-light">
+              <td scope="row">{{ transaction.id }}</td>
+              <td>{{ transaction.sender_name }}</td>
+              <td>{{ transaction.sender_email }}</td>
+              <td>{{ transaction.receiver_name }}</td>
+              <td>{{ transaction.receiver_email }}</td>
+              <td>
+                <p>{{ transaction.amount_transfer }}</p>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% else %}
+  <h3 style="margin-bottom: 325px;">No transactions have taken place</h3>
+{% endif %}
+
+{% endblock %}

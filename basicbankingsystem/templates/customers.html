@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br/>
+
+<h1>All Customers Data</h1>
+<br>
+<!-- table  -->
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr class="table-danger">
+          <th scope="col">Sl. No.</th>
+          <th scope="col">Name</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Bank Balance(in ₹)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for customer in customers %}
+          <tr class="table-light">
+            <td scope="row">{{ customer.id|add:"-10" }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>
+              <p>{{ customer.current_balance }}</p>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

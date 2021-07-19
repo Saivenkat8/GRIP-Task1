@@ -1,0 +1,36 @@
+html{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFFFFF;
+}
+
+.bg-light {
+    background-color: rgba(0, 0, 0, 0.1)!important;
+}
+
+.navbar-brand{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.5rem;
+}
+.list-inline {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.list-inline li {
+    display: inline;
+    padding: 10px;
+}
+
+.list-inline i {
+    font-size: 25px;
+    color: rgb(200, 200, 200);
+}
+
+.list-inline i:hover {
+    color: black;
+}

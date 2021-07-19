@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<form method="POST" action="{% url 'home' %}">
+  {% csrf_token %}
+  <div class="row">
+    {% for error in form.non_field_errors %}
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    {% endfor %}
+    <div class="col text-center">
+      <label class="form-label" style="font-size: x-large;">Transaction Form</label>
+      <br>
+      <br>
+      <select class="form-select" aria-label="Sender's name" name="sender_name">
+        <option selected>Select Sender</option>
+        {% for customer in customers %}
+        <option>{{ customer }}</option>
+        {% endfor %}
+      </select>
+      <br>
+      <br>
+      <select class="form-select" aria-label="Sender's name" name="receiver_name">
+        <option selected>Select Receiver</option>
+        {% for customer in customers %}
+        <option>{{ customer }}</option>
+        {% endfor %}
+      </select>
+      <br>
+      <br>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">₹</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Amount to be transferred in Rupees" aria-label="Amount to be transferred in Rupees" name="amount_transfer">
+      </div>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-secondary">Submit</button>
+    </div>
+    <div class="col text-center">
+      <div class="img-div">
+        <img class="img-content" src="./static/basicbankingsystem/images/online-banking.jpg" alt="img-showing-online-banking" style="height: 42vh; width: 75%; border-radius: 5px;">
+        <br>
+        <br>
+        <label class="form-label" style="font-size: x-large;">Money Transfer Got Simple</label>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
