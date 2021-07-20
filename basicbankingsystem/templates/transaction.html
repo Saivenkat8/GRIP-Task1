@@ -24,7 +24,7 @@
         <tbody>
           {% for transaction in transactions %}
             <tr class="table-light">
-              <td scope="row">{{ transaction.id }}</td>
+              <td scope="row">{{ transaction.id|add:"-46" }}</td>
               <td>{{ transaction.sender_name }}</td>
               <td>{{ transaction.sender_email }}</td>
               <td>{{ transaction.receiver_name }}</td>
